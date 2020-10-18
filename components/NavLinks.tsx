@@ -7,17 +7,17 @@ const NavLinks = () => (
         Home
       </a>
     </Link>
-    <Link href="/">
+    <Link href="/pokemons">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Pokemons
       </a>
     </Link>
-    <Link href="/">
+    <Link href="/about">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         About Us
       </a>
     </Link>
-    <Link href="/">
+    <Link href="/blogs">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Blogs
       </a>
