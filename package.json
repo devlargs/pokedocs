@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Pokemon Gallery and Wiki",
   "scripts": {
+    "lint": "tslint --project tsconfig.json",
     "analyze:tailwind-css-class-order": "rustywind --dry-run .",
     "analyze": "npm run analyze:tailwind-css-class-order",
     "fix:tailwind-css-class-order": "rustywind --write .",

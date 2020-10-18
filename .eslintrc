@@ -1,0 +1,122 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true
+    },
+    "extends": [
+      "airbnb",
+      "prettier",
+      "prettier/react",
+      "plugin:testing-library/react",
+      "plugin:jest-dom/recommended"
+    ],
+    "parser": "babel-eslint",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      },
+      "project": "./tsconfig.json",
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react-hooks",
+      "prettier",
+      "testing-library",
+      "jest",
+      "testing-library"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "import/prefer-default-export": "off",
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1
+        }
+      ],
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [".js", ".jsx", ".tsx", ".ts"]
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "react/no-array-index-key": "off",
+      "no-underscore-dangle": ["error", { "allow": ["__typename"] }],
+      "import/no-unresolved": 0,
+      "import/extensions": 0,
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts", "**/*.tsx"],
+        "extends": ["airbnb-typescript", "prettier", "prettier/react"],
+        "plugins": ["@typescript-eslint"],
+        "parser": "@typescript-eslint/parser",
+        "rules": {
+          "no-undef": "off",
+          "@typescript-eslint/indent": 0,
+          //        "@typescript-eslint/camelcase": 0,
+          //        "@typescript-eslint/explicit-function-return-type": 0,
+          //        "@typescript-eslint/no-non-null-assertion": 0,
+          //        "@typescript-eslint/member-delimiter-style": 0,
+          //        "@typescript-eslint/no-use-before-define": 0,
+          //        "@typescript-eslint/explicit-member-accessibility": 0,
+          //        "@typescript-eslint/no-angle-bracket-type-assertion": 0,
+          "@typescript-eslint/no-unused-vars": 2,
+          "@typescript-eslint/ban-ts-ignore": 1,
+  
+          "prettier/prettier": "error",
+          "react-hooks/rules-of-hooks": "error",
+          "react-hooks/exhaustive-deps": "warn",
+          "import/prefer-default-export": "off",
+          "no-multiple-empty-lines": [
+            "error",
+            {
+              "max": 1
+            }
+          ],
+          "import/no-extraneous-dependencies": [
+            "error",
+            {
+              "devDependencies": true
+            }
+          ],
+          "react/no-array-index-key": "off",
+          "no-underscore-dangle": ["error", { "allow": ["__typename"] }],
+          "import/no-unresolved": 0,
+          "import/extensions": 0,
+          "react/prop-types": 0,
+          "react/jsx-props-no-spreading": 0,
+          "react/jsx-curly-newline": 0
+        }
+      }
+    ]
+  }
+  
