@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavLinks from "./NavLinks";
+import NavLinks from "components/NavLinks";
 
 const Header = () => (
   <header className="shadow bg-red-600 text-white">
