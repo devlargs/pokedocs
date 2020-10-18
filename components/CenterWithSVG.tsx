@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-const Index = () => {
-  return (
-    <Root>
-      <div>
-        <h1 className="text-6xl text-red-600">Pokeloggia. Coming Soon!!</h1>
-      </div>
-    </Root>
-  );
-};
-
 const Root = styled.div`
   display: grid;
   place-items: center;
@@ -18,4 +8,4 @@ const Root = styled.div`
   height: calc(100vh - 60px);
 `;
 
-export default Index;
+export default Root;

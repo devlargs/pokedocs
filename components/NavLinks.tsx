@@ -9,7 +9,12 @@ const NavLinks = () => (
     </Link>
     <Link href="/pokemons">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
-        Pokemons
+        Pokemon
+      </a>
+    </Link>
+    <Link href="/utilities">
+      <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
+        Utilities
       </a>
     </Link>
     <Link href="/about">
@@ -20,6 +25,11 @@ const NavLinks = () => (
     <Link href="/blogs">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Blogs
+      </a>
+    </Link>
+    <Link href="/sadfasdfdasf">
+      <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
+        Error Page
       </a>
     </Link>
   </>
