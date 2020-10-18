@@ -1,3 +1,4 @@
+import Link from "next/link";
 import NavLinks from "./NavLinks";
 
 const Header = () => (
@@ -6,12 +7,11 @@ const Header = () => (
       <div className="flex flex-col md:flex-row md:justify-between md:items-center">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <a
-              className="text-white text-xl font-bold md:text-2xl hover:.text-gray-200"
-              href="#"
-            >
-              pokeloggia
-            </a>
+            <Link href="/">
+              <a className="text-white text-xl font-bold md:text-2xl hover:.text-gray-200">
+                pokeloggia
+              </a>
+            </Link>
           </div>
 
           <div className="flex md:hidden">
