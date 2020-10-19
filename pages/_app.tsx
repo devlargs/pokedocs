@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Header from "components/Header";
 import NProgress from "nprogress";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "store";
 import "styles/global.css";
 
 const App = ({ Component, pageProps }) => {
@@ -25,10 +27,10 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <>
+    <ReduxProvider store={store}>
       <Header />
       <Component {...pageProps} />
-    </>
+    </ReduxProvider>
   );
 };
 
