@@ -22,11 +22,14 @@
   "license": "MIT",
   "dependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.1.4",
     "babel-plugin-styled-components": "^1.11.1",
     "classnames": "^2.2.6",
     "framer-motion": "^2.9.1",
     "next": "9.5.5",
+    "nprogress": "^0.2.0",
+    "postcss-preset-env": "^6.7.0",
     "react": "16.14.0",
     "react-dom": "16.13.1",
     "styled-components": "^5.2.0"
