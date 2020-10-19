@@ -7,9 +7,9 @@ const NavLinks = () => (
         Home
       </a>
     </Link>
-    <Link href="/pokemons">
+    <Link href="/pokedex">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
-        Pokemon
+        Pokédex
       </a>
     </Link>
     <Link href="/utilities">

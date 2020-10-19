@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavLinks from "./NavLinks";
+import NavLinks from "components/NavLinks";
 
 const Header = () => (
   <header className="shadow bg-red-600 text-white">
@@ -9,7 +9,7 @@ const Header = () => (
           <div className="flex items-center">
             <Link href="/">
               <a className="text-white text-xl font-bold md:text-2xl hover:.text-gray-200">
-                pokeloggia
+                pokéloggia
               </a>
             </Link>
           </div>
