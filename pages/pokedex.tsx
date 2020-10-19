@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Pokemons = () => {
+const Pokédex = () => {
   return (
     <>
       <section className="text-gray-700 body-font">
@@ -20,7 +20,7 @@ const Pokemons = () => {
             </p>
           </div>
           <div className="flex flex-wrap -m-4">
-            <Link href="/pokemons/a">
+            <Link href="/pokedex/a">
               <div className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
@@ -105,4 +105,4 @@ const Pokemons = () => {
   );
 };
 
-export default Pokemons;
+export default Pokédex;

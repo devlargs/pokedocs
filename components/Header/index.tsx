@@ -9,7 +9,7 @@ const Header = () => (
           <div className="flex items-center">
             <Link href="/">
               <a className="text-white text-xl font-bold md:text-2xl hover:.text-gray-200">
-                pokeloggia
+                pokéloggia
               </a>
             </Link>
           </div>

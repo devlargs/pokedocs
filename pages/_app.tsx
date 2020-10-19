@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Header from "components/Header";
-import "styles/global.css";
 import NProgress from "nprogress";
+import "styles/global.css";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
