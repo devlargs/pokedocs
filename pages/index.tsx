@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SD from "constants/styleDefaults";
 import styled from "styled-components";
+import { HOMEPAGE_IMAGE_LINK } from "constants/links";
 
 const Index = () => {
   return (
@@ -47,7 +48,7 @@ const Index = () => {
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="https://images.unsplash.com/photo-1542887486-c0aeb6d2fc46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            src={HOMEPAGE_IMAGE_LINK}
             alt=""
           />
         </div>

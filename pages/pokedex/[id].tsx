@@ -1,3 +1,5 @@
+import { SAMPLE_IMAGE_LINK } from "constants/links";
+
 const PokemonById = () => (
   <div className="bg-white shadow p-4 rounded lg:w-64">
     <div className="text-center mt-4">
@@ -7,7 +9,7 @@ const PokemonById = () => (
     <div className="flex justify-center mt-4">
       <img
         className="shadow sm:w-12 sm:h-12 w-10 h-10 rounded-full"
-        src="https://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png"
+        src={SAMPLE_IMAGE_LINK}
         alt="Avatar"
       />
     </div>

@@ -1,3 +1,4 @@
+import { ERROR_IMAGE_LINK } from "constants/links";
 import Link from "next/link";
 
 const Error = () => {
@@ -7,7 +8,7 @@ const Error = () => {
         <img
           className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
           alt="hero"
-          src="https://images.unsplash.com/photo-1590955559496-50316bd28ff2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1386&q=80"
+          src={ERROR_IMAGE_LINK}
         />
         <div className="text-center lg:w-2/3 w-full">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
