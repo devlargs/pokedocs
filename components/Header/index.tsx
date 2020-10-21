@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NavLinks from "components/NavLinks";
+import { GITHUB_LINK } from "constants/links";
 
 const Header = () => (
   <header className="shadow bg-red-600 text-white">
@@ -9,7 +10,7 @@ const Header = () => (
           <div className="flex items-center">
             <Link href="/">
               <a className="text-white text-xl font-bold md:text-2xl hover:.text-gray-200">
-                pokéloggia
+                pokédocs
               </a>
             </Link>
           </div>
@@ -35,7 +36,7 @@ const Header = () => (
             <NavLinks />
 
             <a
-              href="https://github.com/devlargs/pokeloggia"
+              href={GITHUB_LINK}
               className="btn btn-sm btn-link"
               target="_blank"
               rel="noopener noreferrer"

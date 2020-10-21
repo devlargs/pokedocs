@@ -1,5 +1,6 @@
 import getPokemonNumber from "utils/getPokemonNumber";
 import Link from "next/link";
+import { POKEMON_IMAGE_LINK } from "constants/links";
 
 type Props = {
   name: string;
@@ -12,9 +13,7 @@ const PokemonCard = ({ name, url }: Props) => (
       <div className="bg-gray-100 p-6 rounded-lg ">
         <img
           className="h-45 rounded w-full object-cover object-center"
-          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${getPokemonNumber(
-            url
-          )}.png`}
+          src={`${POKEMON_IMAGE_LINK}${getPokemonNumber(url)}.png`}
           alt="content"
         />
         <h3 className="tracking-widest text-red-500 text-xs font-medium title-font">

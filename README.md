@@ -1,3 +1,3 @@
-# pokéloggia
+# Pokédocs
 
-A gallery of all pokemon info
+## TBD
