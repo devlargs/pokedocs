@@ -12,17 +12,17 @@ const NavLinks = () => (
         Pokédex
       </a>
     </Link>
-    <Link href="/utilities">
+    {/* <Link href="/utilities">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Utilities
       </a>
-    </Link>
+    </Link> */}
     {/* <Link href="/about">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         About Us
       </a>
     </Link> */}
-    <Link href="/blogs">
+    {/* <Link href="/blogs">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Blogs
       </a>
@@ -30,8 +30,8 @@ const NavLinks = () => (
     <Link href="/sadfasdfdasf">
       <a className="my-1 text-sm .text-gray-200 leading-5 hover:text-blue-100 hover:underline md:mx-4 md:my-0">
         Error Page
-      </a>
-    </Link>
+      </a> 
+    </Link>*/}
   </>
 );
 
