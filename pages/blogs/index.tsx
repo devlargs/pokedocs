@@ -1,3 +1,5 @@
+import Footer from "components/Footer";
+
 const Blogs = () => {
   return (
     <>
@@ -109,6 +111,8 @@ const Blogs = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 };
