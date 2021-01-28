@@ -35,9 +35,9 @@ const About = () => {
                     <a className="text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -47,9 +47,9 @@ const About = () => {
                     <a className="ml-2 text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -59,9 +59,9 @@ const About = () => {
                     <a className="ml-2 text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -94,9 +94,9 @@ const About = () => {
                     <a className="text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -106,9 +106,9 @@ const About = () => {
                     <a className="ml-2 text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -118,9 +118,9 @@ const About = () => {
                     <a className="ml-2 text-gray-500">
                       <svg
                         fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
