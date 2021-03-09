@@ -1,6 +1,6 @@
 import removeFalsy from "utils/object/removeFalsy";
 
-export default (str: string) => {
+const getPokemonNumber = (str: string) => {
   const split = removeFalsy(str.split("/"));
   const temp = split[split.length - 1];
 
@@ -14,3 +14,5 @@ export default (str: string) => {
 
   return temp;
 };
+
+export default getPokemonNumber

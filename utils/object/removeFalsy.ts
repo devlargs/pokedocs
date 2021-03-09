@@ -1,1 +1,3 @@
-export default (arr: Array<any>) => arr.filter(Boolean);
+const removeFalsy = (arr: Array<any>) => arr.filter(Boolean);
+
+export default removeFalsy
