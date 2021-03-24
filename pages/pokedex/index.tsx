@@ -39,10 +39,12 @@ export const getStaticProps = async () => {
     process.env.NODE_ENV === "development"
       ? {
           limit: 20,
-          offset: 1,
+          offset: 890,
         }
       : null
   );
+
+  console.log(data);
 
   return {
     props: {
