@@ -24,13 +24,30 @@ const Pokedex = ({ data }: { data: Array<PokeDataProps> }) => {
   );
 };
 
-Pokedex.getInitialProps = async () => {
-  const data = await PokeApi.getPokemonsList({
-    limit: 20,
-    offset: 1,
-  });
+export const getStaticProps = async () => {
+  const obj: {
+    limit?: number;
+    offset?: number;
+  } = {};
+
+  if (process.env.NODE_ENV === "development") {
+    obj.limit = 20;
+    obj.offset = 1;
+  }
+
+  const data = await PokeApi.getPokemonsList(
+    process.env.NODE_ENV === "development"
+      ? {
+          limit: 20,
+          offset: 890,
+        }
+      : null
+  );
+
   return {
-    data: data.results,
+    props: {
+      data: data.results,
+    },
   };
 };
 

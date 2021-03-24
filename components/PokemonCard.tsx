@@ -1,3 +1,4 @@
+import { useState } from "react";
 import getPokemonNumber from "utils/getPokemonNumber";
 import Link from "next/link";
 import { POKEMON_IMAGE_LINK } from "constants/links";
@@ -7,23 +8,36 @@ type Props = {
   url: string;
 };
 
-const PokemonCard = ({ name, url }: Props) => (
-  <Link href="/pokedex/a">
-    <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer ">
-      <div className="bg-gray-100 p-6 rounded-lg ">
-        <img
-          className="h-45 rounded w-full object-cover object-center"
-          src={`${POKEMON_IMAGE_LINK}${getPokemonNumber(url)}.png`}
-          alt="content"
-        />
-        <h3 className="tracking-widest text-red-500 text-xs font-medium title-font">
-          #{getPokemonNumber(url)}
-        </h3>
-        <h2 className="text-lg text-gray-900 font-medium title-font mb-4 capitalize">
-          {name}
-        </h2>
-        {/* // TODO - these commented codes are tags that maybe enhancedas components for pokemon types */}
-        {/* <div className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-red-200 text-red-700 rounded-full">
+function checkImage(imageSrc, good, bad) {
+  var img = new Image();
+  img.onload = good;
+  img.onerror = bad;
+  img.src = imageSrc;
+}
+
+const PokemonCard = ({ name, url }: Props) => {
+  const [img, setImage] = useState(
+    `${POKEMON_IMAGE_LINK}${getPokemonNumber(url)}.png`
+  );
+
+  return (
+    <Link href="/pokedex/a">
+      <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer ">
+        <div className="bg-gray-100 p-6 rounded-lg ">
+          <img
+            onError={() => setImage("/images/pokeball.png")}
+            className="h-45 rounded w-full object-cover object-center"
+            src={img}
+            alt="content"
+          />
+          <h3 className="tracking-widest text-red-500 text-xs font-medium title-font">
+            #{getPokemonNumber(url)}
+          </h3>
+          <h2 className="text-lg text-gray-900 font-medium title-font mb-4 capitalize">
+            {name}
+          </h2>
+          {/* // TODO - these commented codes are tags that maybe enhancedas components for pokemon types */}
+          {/* <div className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-red-200 text-red-700 rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -62,9 +76,10 @@ const PokemonCard = ({ name, url }: Props) => (
       </svg>
       Grass
     </div> */}
+        </div>
       </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
+};
 
 export default PokemonCard;
