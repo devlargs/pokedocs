@@ -8,24 +8,28 @@ type Props = {
   url: string;
 };
 
-function checkImage(imageSrc, good, bad) {
-  var img = new Image();
-  img.onload = good;
-  img.onerror = bad;
-  img.src = imageSrc;
-}
-
 const PokemonCard = ({ name, url }: Props) => {
   const [img, setImage] = useState(
     `${POKEMON_IMAGE_LINK}${getPokemonNumber(url)}.png`
   );
 
   return (
-    <Link href="/pokedex/a">
+    <Link
+      href={{
+        pathname: `/pokedex/${name}`,
+        query: {
+          imgUrl: img,
+          number: getPokemonNumber(url),
+        },
+      }}
+    >
       <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer ">
         <div className="bg-gray-100 p-6 rounded-lg ">
           <img
-            onError={() => setImage("/images/pokeball.png")}
+            onError={() => {
+              setImage("/images/pokeball.png");
+              console.clear();
+            }}
             className="h-45 rounded w-full object-cover object-center"
             src={img}
             alt="content"
