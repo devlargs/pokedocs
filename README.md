@@ -54,7 +54,12 @@ appear without a redeploy.
 
 `app/pokedex/[name]` prerenders the first 151 Pokémon at build time; the rest
 render on first request and are then cached. That keeps `next build` short
-instead of making 1,300+ API calls up front.
+instead of making 1,300+ API calls up front. `app/resources/items/[name]`
+prerenders nothing at all for the same reason.
+
+The one exception to the PokéAPI rule is `lib/badges.ts`. PokéAPI has no badge
+endpoint, so gym badges are transcribed from the games by hand and the page
+says so.
 
 ## Licence
 
