@@ -24,3 +24,148 @@ body {
 .dex-backdrop {
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9a3be' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
+/* Hallmark · pre-emit critique: P4 H4 E5 S5 R4 V4 (all >= 3, no revision pass)
+ * Hallmark · macrostructure: Letter · H5 knobs: salutation=greeting, body=3-paragraph, signoff=typed-name
+ * genre: playful · theme: Hum (adapted: brand red + the project's Pokémon type palette replace
+ *   pear/cyan/coral; system font stack retained per pre-flight) · enrichment: none (typography-led)
+ *   + Tier-A pure-CSS character mark · tone: playful · anchor hue: warm (brand red ~25deg)
+ * axes: light paper / rounded-sans-system / warm-multi · scope: /about only
+ * nav + footer archetypes intentionally untouched, since they are shared across all routes.
+ * Tokens live here in :root, not @theme, because Tailwind v4 tree-shakes theme vars that are
+ * only reached through var(). That is the bug that made the type badges invisible.
+ */
+:root {
+  --hm-radius-card: 20px;
+  --hm-radius-pill: 999px;
+  --hm-paper-warm: oklch(97.8% 0.008 60);
+  --hm-paper-warm-2: oklch(95.4% 0.014 60);
+  --hm-ink-soft: oklch(45% 0.01 250);
+  --hm-brand-edge: oklch(0.42 0.16 25);
+  --hm-btn-cast: oklch(0.56 0.2 25 / 0.34);
+  --hm-ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --hm-dur-hover: 140ms;
+  --hm-dur-press: 70ms;
+}
+
+/* Hum's push button: a solid colour edge for thickness plus a soft cast shadow.
+   Lifts on hover, physically depresses on press. Never a negative spread. */
+.hm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  border: 0;
+  border-radius: var(--hm-radius-pill);
+  color: #fff;
+  background: var(--color-brand-600);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow:
+    0 4px 0 0 var(--hm-brand-edge),
+    0 6px 12px -3px var(--hm-btn-cast);
+  transform: translateY(0);
+  transition:
+    transform var(--hm-dur-hover) var(--hm-ease-out),
+    box-shadow var(--hm-dur-hover) var(--hm-ease-out),
+    background-color 160ms var(--hm-ease-out);
+}
+
+.hm-btn:hover {
+  background: var(--color-brand-500);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 0 var(--hm-brand-edge),
+    0 12px 22px -4px var(--hm-btn-cast);
+}
+
+.hm-btn:active {
+  transform: translateY(3px);
+  transition-duration: var(--hm-dur-press);
+  box-shadow:
+    0 1px 0 0 var(--hm-brand-edge),
+    0 2px 6px -2px var(--hm-btn-cast);
+}
+
+.hm-btn:focus-visible {
+  outline: 3px solid var(--hm-brand-edge);
+  outline-offset: 3px;
+}
+
+.hm-btn__arrow {
+  transition: transform var(--hm-dur-hover) var(--hm-ease-out);
+}
+
+.hm-btn:hover .hm-btn__arrow {
+  transform: translateX(3px);
+}
+
+/* Colour-shift card: each card carries its own accent via --tint, set inline. */
+.hm-card {
+  border-radius: var(--hm-radius-card);
+  background: color-mix(in oklch, var(--tint, transparent) 8%, #fff);
+  transition:
+    transform var(--hm-dur-hover) var(--hm-ease-out),
+    box-shadow var(--hm-dur-hover) var(--hm-ease-out),
+    background-color 200ms var(--hm-ease-out);
+}
+
+.hm-card:hover {
+  background: color-mix(in oklch, var(--tint, transparent) 15%, #fff);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px -18px oklch(20% 0.02 250 / 0.4);
+}
+
+/* The character mark: a pure-CSS pokeball that tips when the sign-off is hovered. */
+.hm-mark {
+  --mark-size: 30px;
+  position: relative;
+  display: inline-block;
+  width: var(--mark-size);
+  height: var(--mark-size);
+  border: 2px solid #37474f;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-600) 0 45%,
+    #37474f 45% 55%,
+    #fff 55% 100%
+  );
+  transition: transform 320ms var(--hm-ease-out);
+}
+
+.hm-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 34%;
+  height: 34%;
+  margin: auto;
+  border: 2px solid #37474f;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.hm-signoff:hover .hm-mark {
+  transform: rotate(-14deg) translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-btn,
+  .hm-card,
+  .hm-mark,
+  .hm-btn__arrow {
+    transition-duration: 120ms;
+    transition-property: background-color, box-shadow;
+  }
+
+  .hm-btn:hover,
+  .hm-btn:active,
+  .hm-card:hover,
+  .hm-signoff:hover .hm-mark,
+  .hm-btn:hover .hm-btn__arrow {
+    transform: none;
+  }
+}
