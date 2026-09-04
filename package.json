@@ -1,18 +1,18 @@
 {
   "name": "pokedocs",
-  "version": "0.0.1",
-  "description": "Pokemon Documentation about everything",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pokémon documentation about everything",
   "scripts": {
-    "lint": "tslint --project tsconfig.json",
-    "analyze:tailwind-css-class-order": "rustywind --dry-run .",
-    "analyze": "npm run analyze:tailwind-css-class-order",
-    "fix:tailwind-css-class-order": "rustywind --write .",
-    "fix": "npm run fix:tailwind-css-class-order",
-    "dev": "next -p 3331",
+    "dev": "next dev",
     "build": "next build",
-    "export": "npm run build && next export",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start -p 3331",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "repository": {
     "type": "git",
@@ -20,31 +20,30 @@
   },
   "author": "Ralph Largo",
   "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.4.0",
-    "@types/classnames": "^2.2.10",
-    "@types/nprogress": "^0.2.0",
-    "@types/react-redux": "^7.1.9",
-    "@types/styled-components": "^5.1.4",
-    "babel-plugin-styled-components": "^1.11.1",
-    "classnames": "^2.2.6",
-    "framer-motion": "^2.9.1",
-    "next": "11.1.1",
-    "nprogress": "^0.2.0",
-    "pokedex-promise-v2": "^3.2.0",
-    "postcss-preset-env": "^6.7.0",
-    "react": "16.14.0",
-    "react-dom": "16.13.1",
-    "react-redux": "^7.2.1",
-    "styled-components": "^5.2.0",
-    "uuid": "^8.3.2",
-    "wikijs": "^6.0.1"
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@types/node": "^14.11.10",
-    "@types/react": "^16.9.53",
-    "rustywind": "0.6.7",
-    "tailwindcss": "1.9.3",
-    "typescript": "^4.0.3"
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^15.5.4",
+    "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }
