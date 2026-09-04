@@ -1,89 +1,45 @@
-import { useState } from "react";
-import getPokemonNumber from "utils/getPokemonNumber";
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import { POKEMON_IMAGE_LINK } from "constants/links";
+import { useState } from "react";
+import { artworkUrl } from "@/lib/pokeapi";
+import { displayName, formatDexNumber } from "@/lib/format";
 
-type Props = {
+const FALLBACK_IMAGE = "/images/pokeball.png";
+
+export default function PokemonCard({
+  id,
+  name,
+}: {
+  id: number;
   name: string;
-  url: string;
-};
-
-const PokemonCard = ({ name, url }: Props) => {
-  const [img, setImage] = useState(
-    `${POKEMON_IMAGE_LINK}${getPokemonNumber(url)}.png`
-  );
+}) {
+  // A handful of alternate forms have no official artwork; show a pokéball instead.
+  const [src, setSrc] = useState(artworkUrl(id));
 
   return (
     <Link
-      href={{
-        pathname: `/pokedex/${name}`,
-        query: {
-          imgUrl: img,
-          number: getPokemonNumber(url),
-        },
-      }}
+      href={`/pokedex/${name}`}
+      className="focus-visible:outline-brand-600 group rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2"
     >
-      <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer ">
-        <div className="bg-gray-100 p-6 rounded-lg ">
-          <img
-            onError={() => {
-              setImage("/images/pokeball.png");
-              console.clear();
-            }}
-            className="h-45 rounded w-full object-cover object-center"
-            src={img}
-            alt="content"
-          />
-          <h3 className="tracking-widest text-red-500 text-xs font-medium title-font">
-            #{getPokemonNumber(url)}
-          </h3>
-          <h2 className="text-lg text-gray-900 font-medium title-font mb-4 capitalize">
-            {name}
-          </h2>
-          {/* // TODO - these commented codes are tags that maybe enhancedas components for pokemon types */}
-          {/* <div className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-red-200 text-red-700 rounded-full">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="feather feather-archive mr-2"
-      >
-        <polyline points="21 8 21 21 3 21 3 8"></polyline>
-        <rect x="1" y="3" width="22" height="5"></rect>
-        <line x1="10" y1="12" x2="14" y2="12"></line>
-      </svg>
-      Poison
-    </div>
-
-    <div className="mr-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-red-200 text-red-700 rounded-full">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="feather feather-archive mr-2"
-      >
-        <polyline points="21 8 21 21 3 21 3 8"></polyline>
-        <rect x="1" y="3" width="22" height="5"></rect>
-        <line x1="10" y1="12" x2="14" y2="12"></line>
-      </svg>
-      Grass
-    </div> */}
-        </div>
-      </div>
+      <article className="flex h-full flex-col items-center rounded-lg bg-gray-100 p-5 transition group-hover:bg-white group-hover:shadow-lg">
+        <Image
+          src={src}
+          onError={() => setSrc(FALLBACK_IMAGE)}
+          alt=""
+          width={160}
+          height={160}
+          loading="lazy"
+          className="h-32 w-32 object-contain transition group-hover:scale-105"
+        />
+        <p className="text-brand-500 mt-3 text-xs font-medium tracking-widest">
+          #{formatDexNumber(id)}
+        </p>
+        <h2 className="text-center text-lg font-medium text-gray-900">
+          {displayName(name)}
+        </h2>
+      </article>
     </Link>
   );
-};
-
-export default PokemonCard;
+}
