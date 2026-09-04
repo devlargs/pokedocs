@@ -7,6 +7,5 @@ export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/pokedex", label: "Pokédex" },
   { href: "/resources", label: "Resources" },
-  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ] as const;
