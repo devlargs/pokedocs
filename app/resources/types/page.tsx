@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { displayName } from "@/lib/format";
 import { getTypeChart, multiplierFor, TYPE_ORDER } from "@/lib/pokeapi";
+import { typeStyle } from "@/lib/typeColors";
 
 export const metadata: Metadata = {
   title: "Type matchups",
@@ -77,10 +78,8 @@ export default async function TypeChartPage() {
               {TYPE_ORDER.map((defending) => (
                 <th key={defending} scope="col" className="p-1">
                   <span
-                    className="block w-9 rounded px-1 py-1.5 text-center font-semibold text-white uppercase"
-                    style={{
-                      backgroundColor: `var(--color-type-${defending})`,
-                    }}
+                    className="block w-9 rounded px-1 py-1.5 text-center font-semibold uppercase"
+                    style={typeStyle(defending)}
                     title={displayName(defending)}
                   >
                     {defending.slice(0, 3)}
@@ -97,10 +96,8 @@ export default async function TypeChartPage() {
                   className="sticky left-0 z-10 bg-white p-1 text-left"
                 >
                   <span
-                    className="block rounded px-2 py-1.5 font-semibold text-white uppercase"
-                    style={{
-                      backgroundColor: `var(--color-type-${attacking})`,
-                    }}
+                    className="block rounded px-2 py-1.5 font-semibold uppercase"
+                    style={typeStyle(attacking)}
                   >
                     {displayName(attacking)}
                   </span>
@@ -121,7 +118,11 @@ export default async function TypeChartPage() {
                           {displayName(attacking)} against{" "}
                           {displayName(defending)}:{" "}
                         </span>
-                        {label || <span aria-hidden="true">&middot;</span>}
+                        {label || (
+                          <span aria-hidden="true" className="text-gray-400">
+                            &middot;
+                          </span>
+                        )}
                         <span className="sr-only">
                           {multiplier} times damage
                         </span>
