@@ -6,7 +6,6 @@ export const GITHUB_URL = "https://github.com/devlargs/pokedocs";
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/pokedex", label: "Pokédex" },
-  { href: "/utilities", label: "Utilities" },
-  { href: "/blog", label: "Blog" },
+  { href: "/resources", label: "Resources" },
   { href: "/about", label: "About" },
 ] as const;

@@ -1,0 +1,8 @@
+# Keep line endings LF in the working tree on every platform. Prettier checks
+# for LF, so without this `npm run format:check` fails on Windows checkouts.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.jpg binary
+*.svg text eol=lf

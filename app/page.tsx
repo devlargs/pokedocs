@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Pokeball3D from "@/components/Pokeball3D";
 
 const FEATURES = [
   {
@@ -59,12 +60,7 @@ export default function Home() {
           </div>
 
           <div className="dex-backdrop flex items-center justify-center rounded-2xl border border-gray-100 p-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/pokeball.png"
-              alt=""
-              className="h-56 w-56 object-contain drop-shadow-xl sm:h-72 sm:w-72"
-            />
+            <Pokeball3D className="h-56 w-56 cursor-grab sm:h-72 sm:w-72" />
           </div>
         </div>
       </section>
